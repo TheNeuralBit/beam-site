@@ -1,0 +1,8 @@
+apache\_beam.metrics.cells module
+=================================
+
+.. automodule:: apache_beam.metrics.cells
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

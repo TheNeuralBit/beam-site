@@ -1,0 +1,8 @@
+apache\_beam.pipeline module
+============================
+
+.. automodule:: apache_beam.pipeline
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

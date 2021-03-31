@@ -1,0 +1,8 @@
+apache\_beam.transforms.external module
+=======================================
+
+.. automodule:: apache_beam.transforms.external
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

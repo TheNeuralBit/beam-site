@@ -1,0 +1,16 @@
+apache\_beam.io.aws.clients package
+===================================
+
+.. automodule:: apache_beam.io.aws.clients
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    apache_beam.io.aws.clients.s3
+

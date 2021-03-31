@@ -1,0 +1,8 @@
+apache\_beam.io.kafka module
+============================
+
+.. automodule:: apache_beam.io.kafka
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

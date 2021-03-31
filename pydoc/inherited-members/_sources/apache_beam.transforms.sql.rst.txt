@@ -1,0 +1,8 @@
+apache\_beam.transforms.sql module
+==================================
+
+.. automodule:: apache_beam.transforms.sql
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

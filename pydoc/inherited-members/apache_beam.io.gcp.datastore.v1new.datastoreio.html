@@ -1,0 +1,1476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.io.gcp.datastore.v1new.datastoreio module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.io.gcp.datastore.v1new.helper module" href="apache_beam.io.gcp.datastore.v1new.helper.html" />
+    <link rel="prev" title="apache_beam.io.gcp.datastore.v1new.datastore_write_it_pipeline module" href="apache_beam.io.gcp.datastore.v1new.datastore_write_it_pipeline.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.io.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.aws.html">apache_beam.io.aws package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.azure.html">apache_beam.io.azure package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.external.html">apache_beam.io.external package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.flink.html">apache_beam.io.flink package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="apache_beam.io.gcp.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache_beam.io.gcp.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.io.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.html">apache_beam.io package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.gcp.datastore.html">apache_beam.io.gcp.datastore package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.gcp.datastore.v1new.html">apache_beam.io.gcp.datastore.v1new package</a> &raquo;</li>
+        
+      <li>apache_beam.io.gcp.datastore.v1new.datastoreio module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.io.gcp.datastore.v1new.datastoreio.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.io.gcp.datastore.v1new.datastoreio">
+<span id="apache-beam-io-gcp-datastore-v1new-datastoreio-module"></span><h1>apache_beam.io.gcp.datastore.v1new.datastoreio module<a class="headerlink" href="#module-apache_beam.io.gcp.datastore.v1new.datastoreio" title="Permalink to this headline">¶</a></h1>
+<p>A connector for reading from and writing to Google Cloud Datastore.</p>
+<p>This module uses the newer google-cloud-datastore client package. Its API was
+different enough to require extensive changes to this and associated modules.</p>
+<dl class="class">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.datastore.v1new.datastoreio.</code><code class="descname">ReadFromDatastore</code><span class="sig-paren">(</span><em>query</em>, <em>num_splits=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/datastore/v1new/datastoreio.html#ReadFromDatastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransform</span></code> for querying Google Cloud Datastore.</p>
+<p>To read a <code class="docutils literal notranslate"><span class="pre">PCollection[Entity]</span></code> from a Cloud Datastore <code class="docutils literal notranslate"><span class="pre">Query</span></code>, use
+the <code class="docutils literal notranslate"><span class="pre">ReadFromDatastore</span></code> transform by providing a <cite>query</cite> to
+read from. The project and optional namespace are set in the query.
+The query will be split into multiple queries to allow for parallelism. The
+degree of parallelism is automatically determined, but can be overridden by
+setting <cite>num_splits</cite> to a value of 1 or greater.</p>
+<p>Note: Normally, a runner will read from Cloud Datastore in parallel across
+many workers. However, when the <cite>query</cite> is configured with a <cite>limit</cite> or if the
+query contains inequality filters like <cite>GREATER_THAN, LESS_THAN</cite> etc., then
+all the returned results will be read by a single worker in order to ensure
+correct data. Since data is read from a single worker, this could have
+significant impact on the performance of the job. Using a
+<a class="reference internal" href="apache_beam.transforms.util.html#apache_beam.transforms.util.Reshuffle" title="apache_beam.transforms.util.Reshuffle"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reshuffle</span></code></a> transform after the read in
+this case might be beneficial for parallelizing work across workers.</p>
+<dl class="docutils">
+<dt>The semantics for query splitting is defined below:</dt>
+<dd><p class="first">1. If <cite>num_splits</cite> is equal to 0, then the number of splits will be chosen
+dynamically at runtime based on the query data size.</p>
+<p>2. Any value of <cite>num_splits</cite> greater than
+<cite>ReadFromDatastore._NUM_QUERY_SPLITS_MAX</cite> will be capped at that value.</p>
+<p>3. If the <cite>query</cite> has a user limit set, or contains inequality filters, then
+<cite>num_splits</cite> will be ignored and no split will be performed.</p>
+<p class="last">4. Under certain cases Cloud Datastore is unable to split query to the
+requested number of splits. In such cases we just use whatever Cloud
+Datastore returns.</p>
+</dd>
+</dl>
+<p>See <a class="reference external" href="https://developers.google.com/datastore/">https://developers.google.com/datastore/</a> for more details on Google Cloud
+Datastore.</p>
+<p>Initialize the <cite>ReadFromDatastore</cite> transform.</p>
+<p>This transform outputs elements of type
+<a class="reference internal" href="apache_beam.io.gcp.datastore.v1new.types.html#apache_beam.io.gcp.datastore.v1new.types.Entity" title="apache_beam.io.gcp.datastore.v1new.types.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>query</strong> – (<a class="reference internal" href="apache_beam.io.gcp.datastore.v1new.types.html#apache_beam.io.gcp.datastore.v1new.types.Query" title="apache_beam.io.gcp.datastore.v1new.types.Query"><code class="xref py py-class docutils literal notranslate"><span class="pre">Query</span></code></a>) query
+used to fetch entities.</li>
+<li><strong>num_splits</strong> – (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) (optional) Number of splits for the query.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcoll</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/datastore/v1new/datastoreio.html#ReadFromDatastore.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/datastore/v1new/datastoreio.html#ReadFromDatastore.display_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.display_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.ReadFromDatastore.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.datastore.v1new.datastoreio.</code><code class="descname">WriteToDatastore</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/datastore/v1new/datastoreio.html#WriteToDatastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.io.gcp.datastore.v1new.datastoreio._Mutate</span></code></p>
+<p>Writes elements of type
+<a class="reference internal" href="apache_beam.io.gcp.datastore.v1new.types.html#apache_beam.io.gcp.datastore.v1new.types.Entity" title="apache_beam.io.gcp.datastore.v1new.types.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a> to Cloud Datastore.</p>
+<p>Entity keys must be complete. The <code class="docutils literal notranslate"><span class="pre">project</span></code> field in each key must match the
+project ID passed to this transform. If <code class="docutils literal notranslate"><span class="pre">project</span></code> field in entity or
+property key is empty then it is filled with the project ID passed to this
+transform.</p>
+<p>Initialize the <cite>WriteToDatastore</cite> transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> – (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) The ID of the project to write entities to.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn">
+<em class="property">class </em><code class="descname">DatastoreMutateFn</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">DoFn</span></code> that write mutations to Datastore.</p>
+<p>Mutations are written in batches, where the maximum batch size is
+<cite>util.WRITE_BATCH_SIZE</cite>.</p>
+<p>Commits are non-transactional. If a commit fails because of a conflict over
+an entity group, the commit will be retried. This means that the mutation
+should be idempotent (<cite>upsert</cite> and <cite>delete</cite> mutations) to prevent duplicate
+data or errors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> – (str) cloud project id</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.add_to_batch">
+<code class="descname">add_to_batch</code><span class="sig-paren">(</span><em>client_batch_item</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.add_to_batch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.element_to_client_batch_item">
+<code class="descname">element_to_client_batch_item</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.element_to_client_batch_item" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.write_mutations">
+<code class="descname">write_mutations</code><span class="sig-paren">(</span><em>throttler</em>, <em>rpc_stats_callback</em>, <em>throttle_delay=1</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.DatastoreMutateFn.write_mutations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a batch of mutations to Cloud Datastore.</p>
+<p>If a commit fails, it will be retried up to 5 times. All mutations in the
+batch will be committed again, even if the commit was partially
+successful. If the retry limit is exceeded, the last exception from
+Cloud Datastore will be raised.</p>
+<p>Assumes that the Datastore client library does not perform any retries on
+commits. It has not been determined how such retries would interact with
+the retries and throttler used here.
+See <code class="docutils literal notranslate"><span class="pre">google.cloud.datastore_v1.gapic.datastore_client_config</span></code> for
+retry config.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>rpc_stats_callback</strong> – a function to call with arguments <cite>successes</cite> and
+<cite>failures</cite> and <cite>throttled_secs</cite>; this is called to record successful
+and failed RPCs to Datastore and time spent waiting for throttling.</li>
+<li><strong>throttler</strong> – (<code class="docutils literal notranslate"><span class="pre">apache_beam.io.gcp.datastore.v1new.adaptive_throttler.</span>
+<span class="pre">AdaptiveThrottler</span></code>)
+Throttler instance used to select requests to be throttled.</li>
+<li><strong>throttle_delay</strong> – (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) time in seconds to sleep when
+throttled.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(int) The latency of the successful RPC in milliseconds.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcoll</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.WriteToDatastore.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.datastore.v1new.datastoreio.</code><code class="descname">DeleteFromDatastore</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/datastore/v1new/datastoreio.html#DeleteFromDatastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.io.gcp.datastore.v1new.datastoreio._Mutate</span></code></p>
+<p>Deletes elements matching input
+<a class="reference internal" href="apache_beam.io.gcp.datastore.v1new.types.html#apache_beam.io.gcp.datastore.v1new.types.Key" title="apache_beam.io.gcp.datastore.v1new.types.Key"><code class="xref py py-class docutils literal notranslate"><span class="pre">Key</span></code></a> elements from Cloud
+Datastore.</p>
+<p>Keys must be complete. The <code class="docutils literal notranslate"><span class="pre">project</span></code> field in each key must match the
+project ID passed to this transform. If <code class="docutils literal notranslate"><span class="pre">project</span></code> field in key is empty then
+it is filled with the project ID passed to this transform.</p>
+<p>Initialize the <cite>DeleteFromDatastore</cite> transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> – (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) The ID of the project from which the entities will
+be deleted.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn">
+<em class="property">class </em><code class="descname">DatastoreMutateFn</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">DoFn</span></code> that write mutations to Datastore.</p>
+<p>Mutations are written in batches, where the maximum batch size is
+<cite>util.WRITE_BATCH_SIZE</cite>.</p>
+<p>Commits are non-transactional. If a commit fails because of a conflict over
+an entity group, the commit will be retried. This means that the mutation
+should be idempotent (<cite>upsert</cite> and <cite>delete</cite> mutations) to prevent duplicate
+data or errors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> – (str) cloud project id</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.add_to_batch">
+<code class="descname">add_to_batch</code><span class="sig-paren">(</span><em>client_batch_item</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.add_to_batch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.element_to_client_batch_item">
+<code class="descname">element_to_client_batch_item</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.element_to_client_batch_item" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.write_mutations">
+<code class="descname">write_mutations</code><span class="sig-paren">(</span><em>throttler</em>, <em>rpc_stats_callback</em>, <em>throttle_delay=1</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.DatastoreMutateFn.write_mutations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a batch of mutations to Cloud Datastore.</p>
+<p>If a commit fails, it will be retried up to 5 times. All mutations in the
+batch will be committed again, even if the commit was partially
+successful. If the retry limit is exceeded, the last exception from
+Cloud Datastore will be raised.</p>
+<p>Assumes that the Datastore client library does not perform any retries on
+commits. It has not been determined how such retries would interact with
+the retries and throttler used here.
+See <code class="docutils literal notranslate"><span class="pre">google.cloud.datastore_v1.gapic.datastore_client_config</span></code> for
+retry config.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>rpc_stats_callback</strong> – a function to call with arguments <cite>successes</cite> and
+<cite>failures</cite> and <cite>throttled_secs</cite>; this is called to record successful
+and failed RPCs to Datastore and time spent waiting for throttling.</li>
+<li><strong>throttler</strong> – (<code class="docutils literal notranslate"><span class="pre">apache_beam.io.gcp.datastore.v1new.adaptive_throttler.</span>
+<span class="pre">AdaptiveThrottler</span></code>)
+Throttler instance used to select requests to be throttled.</li>
+<li><strong>throttle_delay</strong> – (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) time in seconds to sleep when
+throttled.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(int) The latency of the successful RPC in milliseconds.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcoll</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.datastore.v1new.datastoreio.DeleteFromDatastore.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.io.gcp.datastore.v1new.helper.html" class="btn btn-neutral float-right" title="apache_beam.io.gcp.datastore.v1new.helper module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.io.gcp.datastore.v1new.datastore_write_it_pipeline.html" class="btn btn-neutral float-left" title="apache_beam.io.gcp.datastore.v1new.datastore_write_it_pipeline module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

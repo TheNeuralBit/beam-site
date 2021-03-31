@@ -1,0 +1,8 @@
+apache\_beam.typehints.opcodes module
+=====================================
+
+.. automodule:: apache_beam.typehints.opcodes
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

@@ -1,0 +1,8 @@
+apache\_beam.io.kinesis module
+==============================
+
+.. automodule:: apache_beam.io.kinesis
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

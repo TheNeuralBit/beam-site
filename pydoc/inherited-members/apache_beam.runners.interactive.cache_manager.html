@@ -1,0 +1,990 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.runners.interactive.cache_manager module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.runners.interactive.interactive_beam module" href="apache_beam.runners.interactive.interactive_beam.html" />
+    <link rel="prev" title="apache_beam.runners.interactive.background_caching_job module" href="apache_beam.runners.interactive.background_caching_job.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.runners.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.dataflow.html">apache_beam.runners.dataflow package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.direct.html">apache_beam.runners.direct package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="apache_beam.runners.interactive.html">apache_beam.runners.interactive package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="apache_beam.runners.interactive.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="apache_beam.runners.interactive.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.internal.html">apache_beam.runners.internal package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.job.html">apache_beam.runners.job package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.runners.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.runners.html">apache_beam.runners package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.runners.interactive.html">apache_beam.runners.interactive package</a> &raquo;</li>
+        
+      <li>apache_beam.runners.interactive.cache_manager module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.runners.interactive.cache_manager.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.runners.interactive.cache_manager">
+<span id="apache-beam-runners-interactive-cache-manager-module"></span><h1>apache_beam.runners.interactive.cache_manager module<a class="headerlink" href="#module-apache_beam.runners.interactive.cache_manager" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager">
+<em class="property">class </em><code class="descclassname">apache_beam.runners.interactive.cache_manager.</code><code class="descname">CacheManager</code><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Abstract class for caching PCollections.</p>
+<p>A PCollection cache is identified by labels, which consist of a prefix (either
+‘full’ or ‘sample’) and a cache_label which is a hash of the PCollection
+derivation.</p>
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.exists">
+<code class="descname">exists</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns if the PCollection cache exists.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.is_latest_version">
+<code class="descname">is_latest_version</code><span class="sig-paren">(</span><em>version</em>, <em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.is_latest_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.is_latest_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns if the given version number is the latest.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>*labels</em>, <em>**args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the PCollection as a list as well as the version number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>*labels</strong> – List of labels for PCollection instance.</li>
+<li><strong>**args</strong> – Dict of additional arguments. Currently only ‘tail’ as a boolean.
+When tail is True, will wait and read new elements until the cache is
+complete.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>A tuple containing an iterator for the items in the PCollection and the</dt>
+<dd><p class="first last">version number.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>It is possible that the version numbers from read() and_latest_version()
+are different. This usually means that the cache’s been evicted (thus
+unavailable =&gt; read() returns version = -1), but it had reached version n
+before eviction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>value</em>, <em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the value to the given cache.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> – An encodable (with corresponding PCoder) value</li>
+<li><strong>*labels</strong> – List of labels for PCollection instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the cache entry of the given labels and returns True on success.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> – An encodable (with corresponding PCoder) value</li>
+<li><strong>*labels</strong> – List of labels for PCollection instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.source">
+<code class="descname">source</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a PTransform that reads the PCollection cache.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.sink">
+<code class="descname">sink</code><span class="sig-paren">(</span><em>labels</em>, <em>is_capture=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.sink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a PTransform that writes the PCollection cache.</p>
+<p>TODO(BEAM-10514): Make sure labels will not be converted into an
+arbitrarily long file path: e.g., windows has a 260 path limit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.save_pcoder">
+<code class="descname">save_pcoder</code><span class="sig-paren">(</span><em>pcoder</em>, <em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.save_pcoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.save_pcoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves pcoder for given PCollection.</p>
+<p>Correct reading of PCollection from Cache requires PCoder to be known.
+This method saves desired PCoder for PCollection that will subsequently
+be used by sink(…), source(…), and, most importantly, read(…) method.
+The latter must be able to read a PCollection written by Beam using
+non-Beam IO.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pcoder</strong> – A PCoder to be used for reading and writing a PCollection.</li>
+<li><strong>*labels</strong> – List of labels for PCollection instance.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.load_pcoder">
+<code class="descname">load_pcoder</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.load_pcoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.load_pcoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns previously saved PCoder for reading and writing PCollection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.cleanup">
+<code class="descname">cleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.cleanup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleans up all the PCollection caches.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.CacheManager.size">
+<code class="descname">size</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#CacheManager.size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.CacheManager.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the size of the PCollection on disk in bytes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager">
+<em class="property">class </em><code class="descclassname">apache_beam.runners.interactive.cache_manager.</code><code class="descname">FileBasedCacheManager</code><span class="sig-paren">(</span><em>cache_dir=None</em>, <em>cache_format='text'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#apache_beam.runners.interactive.cache_manager.CacheManager" title="apache_beam.runners.interactive.cache_manager.CacheManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.runners.interactive.cache_manager.CacheManager</span></code></a></p>
+<p>Maps PCollections to local temp files for materialization.</p>
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.size">
+<code class="descname">size</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.exists">
+<code class="descname">exists</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.save_pcoder">
+<code class="descname">save_pcoder</code><span class="sig-paren">(</span><em>pcoder</em>, <em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.save_pcoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.save_pcoder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.load_pcoder">
+<code class="descname">load_pcoder</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.load_pcoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.load_pcoder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>*labels</em>, <em>**args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>values</em>, <em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.source">
+<code class="descname">source</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.sink">
+<code class="descname">sink</code><span class="sig-paren">(</span><em>labels</em>, <em>is_capture=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.sink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.sink" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.cleanup">
+<code class="descname">cleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#FileBasedCacheManager.cleanup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.cleanup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.is_latest_version">
+<code class="descname">is_latest_version</code><span class="sig-paren">(</span><em>version</em>, <em>*labels</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.FileBasedCacheManager.is_latest_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns if the given version number is the latest.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache">
+<em class="property">class </em><code class="descclassname">apache_beam.runners.interactive.cache_manager.</code><code class="descname">ReadCache</code><span class="sig-paren">(</span><em>cache_manager</em>, <em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#ReadCache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>A PTransform that reads the PCollections from the cache.</p>
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pbegin</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#ReadCache.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.ReadCache.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.ReadCache.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache">
+<em class="property">class </em><code class="descclassname">apache_beam.runners.interactive.cache_manager.</code><code class="descname">WriteCache</code><span class="sig-paren">(</span><em>cache_manager</em>, <em>label</em>, <em>sample=False</em>, <em>sample_size=0</em>, <em>is_capture=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#WriteCache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>A PTransform that writes the PCollections to the cache.</p>
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcoll</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#WriteCache.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.WriteCache.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.WriteCache.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder">
+<em class="property">class </em><code class="descclassname">apache_beam.runners.interactive.cache_manager.</code><code class="descname">SafeFastPrimitivesCoder</code><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#SafeFastPrimitivesCoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.coders.coders.html#apache_beam.coders.coders.Coder" title="apache_beam.coders.coders.Coder"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.coders.coders.Coder</span></code></a></p>
+<p>This class add an quote/unquote step to escape special characters.</p>
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#SafeFastPrimitivesCoder.encode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.as_cloud_object">
+<code class="descname">as_cloud_object</code><span class="sig-paren">(</span><em>coders_context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.as_cloud_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>For internal use only; no backwards-compatibility guarantees.</p>
+<p>Returns Google Cloud Dataflow API description of this coder.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.as_deterministic_coder">
+<code class="descname">as_deterministic_coder</code><span class="sig-paren">(</span><em>step_label</em>, <em>error_message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.as_deterministic_coder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a deterministic version of self, if possible.</p>
+<p>Otherwise raises a value error.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/interactive/cache_manager.html#SafeFastPrimitivesCoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.decode_nested">
+<code class="descname">decode_nested</code><span class="sig-paren">(</span><em>encoded</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.decode_nested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses the underlying implementation to decode in nested format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.encode_nested">
+<code class="descname">encode_nested</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.encode_nested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses the underlying implementation to encode in nested format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.estimate_size">
+<code class="descname">estimate_size</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.estimate_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the encoded size of the given value, in bytes.</p>
+<p>Dataflow estimates the encoded size of a PCollection processed in a pipeline
+step by using the estimated size of a random sample of elements in that
+PCollection.</p>
+<p>The default implementation encodes the given value and returns its byte
+size.  If a coder can provide a fast estimate of the encoded size of a value
+(e.g., if the encoding has a fixed size), it can provide its estimate here
+to improve performance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the value whose encoded size is to be estimated.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The estimated encoded size of the given value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>coder_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.from_type_hint">
+<em class="property">classmethod </em><code class="descname">from_type_hint</code><span class="sig-paren">(</span><em>unused_typehint</em>, <em>unused_registry</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.from_type_hint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.get_impl">
+<code class="descname">get_impl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.get_impl" title="Permalink to this definition">¶</a></dt>
+<dd><p>For internal use only; no backwards-compatibility guarantees.</p>
+<p>Returns the CoderImpl backing this Coder.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.is_deterministic">
+<code class="descname">is_deterministic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.is_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this coder is guaranteed to encode values deterministically.</p>
+<p>A deterministic coder is required for key coders in GroupByKey operations
+to produce consistent results.</p>
+<p>For example, note that the default coder, the PickleCoder, is not
+deterministic: the ordering of picked entries in maps may vary across
+executions since there is no defined order, and such a coder is not in
+general suitable for usage as a key coder in GroupByKey operations, since
+each instance of the same key may be encoded differently.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether coder is deterministic.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.is_kv_coder">
+<code class="descname">is_kv_coder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.is_kv_coder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.key_coder">
+<code class="descname">key_coder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.key_coder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.register_structured_urn">
+<em class="property">static </em><code class="descname">register_structured_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>cls</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.register_structured_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a coder that’s completely defined by its urn and its
+component(s), if any, which are passed to construct the instance.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.to_type_hint">
+<code class="descname">to_type_hint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.to_type_hint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.value_coder">
+<code class="descname">value_coder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.interactive.cache_manager.SafeFastPrimitivesCoder.value_coder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.runners.interactive.interactive_beam.html" class="btn btn-neutral float-right" title="apache_beam.runners.interactive.interactive_beam module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.runners.interactive.background_caching_job.html" class="btn btn-neutral float-left" title="apache_beam.runners.interactive.background_caching_job module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.io.concat_source module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.io.filebasedsink module" href="apache_beam.io.filebasedsink.html" />
+    <link rel="prev" title="apache_beam.io.avroio module" href="apache_beam.io.avroio.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.io.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.io.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.avroio.html">apache_beam.io.avroio module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">apache_beam.io.concat_source module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.filebasedsink.html">apache_beam.io.filebasedsink module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.filebasedsource.html">apache_beam.io.filebasedsource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.fileio.html">apache_beam.io.fileio module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.filesystem.html">apache_beam.io.filesystem module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.filesystemio.html">apache_beam.io.filesystemio module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.filesystems.html">apache_beam.io.filesystems module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.hadoopfilesystem.html">apache_beam.io.hadoopfilesystem module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.iobase.html">apache_beam.io.iobase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.jdbc.html">apache_beam.io.jdbc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.kafka.html">apache_beam.io.kafka module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.kinesis.html">apache_beam.io.kinesis module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.localfilesystem.html">apache_beam.io.localfilesystem module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.mongodbio.html">apache_beam.io.mongodbio module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.parquetio.html">apache_beam.io.parquetio module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.range_trackers.html">apache_beam.io.range_trackers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.restriction_trackers.html">apache_beam.io.restriction_trackers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.snowflake.html">apache_beam.io.snowflake module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.source_test_utils.html">apache_beam.io.source_test_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.textio.html">apache_beam.io.textio module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.tfrecordio.html">apache_beam.io.tfrecordio module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.utils.html">apache_beam.io.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.watermark_estimators.html">apache_beam.io.watermark_estimators module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.html">apache_beam.io package</a> &raquo;</li>
+        
+      <li>apache_beam.io.concat_source module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.io.concat_source.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.io.concat_source">
+<span id="apache-beam-io-concat-source-module"></span><h1>apache_beam.io.concat_source module<a class="headerlink" href="#module-apache_beam.io.concat_source" title="Permalink to this headline">¶</a></h1>
+<p>For internal use only; no backwards-compatibility guarantees.</p>
+<p>Concat Source, which reads the union of several other sources.</p>
+<dl class="class">
+<dt id="apache_beam.io.concat_source.ConcatSource">
+<em class="property">class </em><code class="descclassname">apache_beam.io.concat_source.</code><code class="descname">ConcatSource</code><span class="sig-paren">(</span><em>sources</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.io.iobase.html#apache_beam.io.iobase.BoundedSource" title="apache_beam.io.iobase.BoundedSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.io.iobase.BoundedSource</span></code></a></p>
+<p>For internal use only; no backwards-compatibility guarantees.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> that can group a set of <code class="docutils literal notranslate"><span class="pre">BoundedSources</span></code>.</p>
+<p>Primarily for internal use, use the <code class="docutils literal notranslate"><span class="pre">apache_beam.Flatten</span></code> transform
+to create the union of several reads.</p>
+<dl class="attribute">
+<dt id="apache_beam.io.concat_source.ConcatSource.sources">
+<code class="descname">sources</code><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.sources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.estimate_size">
+<code class="descname">estimate_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatSource.estimate_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.estimate_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.split">
+<code class="descname">split</code><span class="sig-paren">(</span><em>desired_bundle_size=None</em>, <em>start_position=None</em>, <em>stop_position=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatSource.split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.split" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.get_range_tracker">
+<code class="descname">get_range_tracker</code><span class="sig-paren">(</span><em>start_position=None</em>, <em>stop_position=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatSource.get_range_tracker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.get_range_tracker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>range_tracker</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatSource.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.default_output_coder">
+<code class="descname">default_output_coder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatSource.default_output_coder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.default_output_coder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.concat_source.ConcatSource.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.is_bounded">
+<code class="descname">is_bounded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.is_bounded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.concat_source.ConcatSource.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.concat_source.ConcatSource.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatSource.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatSource.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker">
+<em class="property">class </em><code class="descclassname">apache_beam.io.concat_source.</code><code class="descname">ConcatRangeTracker</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>source_bundles</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.io.iobase.html#apache_beam.io.iobase.RangeTracker" title="apache_beam.io.iobase.RangeTracker"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.io.iobase.RangeTracker</span></code></a></p>
+<p>For internal use only; no backwards-compatibility guarantees.</p>
+<p>Range tracker for ConcatSource</p>
+<p>Initializes <code class="docutils literal notranslate"><span class="pre">ConcatRangeTracker</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> – start position, a tuple of (source_index, source_position)</li>
+<li><strong>end</strong> – end position, a tuple of (source_index, source_position)</li>
+<li><strong>source_bundles</strong> – the list of source bundles in the ConcatSource</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.start_position">
+<code class="descname">start_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.start_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.start_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.stop_position">
+<code class="descname">stop_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.stop_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.stop_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.try_claim">
+<code class="descname">try_claim</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.try_claim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.try_claim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.try_split">
+<code class="descname">try_split</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.try_split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.try_split" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.set_current_position">
+<code class="descname">set_current_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.set_current_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.set_current_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.position_at_fraction">
+<code class="descname">position_at_fraction</code><span class="sig-paren">(</span><em>fraction</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.position_at_fraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.position_at_fraction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.fraction_consumed">
+<code class="descname">fraction_consumed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.fraction_consumed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.fraction_consumed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.local_to_global">
+<code class="descname">local_to_global</code><span class="sig-paren">(</span><em>source_ix</em>, <em>source_frac</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.local_to_global"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.local_to_global" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.global_to_local">
+<code class="descname">global_to_local</code><span class="sig-paren">(</span><em>frac</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.global_to_local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.global_to_local" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.sub_range_tracker">
+<code class="descname">sub_range_tracker</code><span class="sig-paren">(</span><em>source_ix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/concat_source.html#ConcatRangeTracker.sub_range_tracker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.sub_range_tracker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.SPLIT_POINTS_UNKNOWN">
+<code class="descname">SPLIT_POINTS_UNKNOWN</code><em class="property"> = &lt;object object&gt;</em><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.SPLIT_POINTS_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.set_split_points_unclaimed_callback">
+<code class="descname">set_split_points_unclaimed_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.set_split_points_unclaimed_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a callback for determining the unclaimed number of split points.</p>
+<p>By invoking this function, a <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> can set a callback function
+that may get invoked by the <code class="docutils literal notranslate"><span class="pre">RangeTracker</span></code> to determine the number of
+unclaimed split points. A split point is unclaimed if
+<code class="docutils literal notranslate"><span class="pre">RangeTracker.try_claim()</span></code> method has not been successfully invoked for
+that particular split point. The callback function accepts a single
+parameter, a stop position for the BoundedSource (stop_position). If the
+record currently being consumed by the <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> is at position
+current_position, callback should return the number of split points within
+the range (current_position, stop_position). Note that, this should not
+include the split point that is currently being consumed by the source.</p>
+<p>This function must be implemented by subclasses before being used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> – a function that takes a single parameter, a stop position,
+and returns unclaimed number of split points for the source read
+operation that is calling this function. Value returned from
+callback should be either an integer larger than or equal to
+zero or <code class="docutils literal notranslate"><span class="pre">RangeTracker.SPLIT_POINTS_UNKNOWN</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.concat_source.ConcatRangeTracker.split_points">
+<code class="descname">split_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.concat_source.ConcatRangeTracker.split_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the number of split points consumed and remaining.</p>
+<p>For a <code class="docutils literal notranslate"><span class="pre">RangeTracker</span></code> used by a <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> (within a
+<code class="docutils literal notranslate"><span class="pre">BoundedSource.read()</span></code> invocation) this method produces a 2-tuple that
+gives the number of split points consumed by the <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> and the
+number of split points remaining within the range of the <code class="docutils literal notranslate"><span class="pre">RangeTracker</span></code>
+that has not been consumed by the <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code>.</p>
+<p>More specifically, given that the position of the current record being read
+by <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> is current_position this method produces a tuple that
+consists of
+(1) number of split points in the range [self.start_position(),
+current_position) without including the split point that is currently being
+consumed. This represents the total amount of parallelism in the consumed
+part of the source.
+(2) number of split points within the range
+[current_position, self.stop_position()) including the split point that is
+currently being consumed. This represents the total amount of parallelism in
+the unconsumed part of the source.</p>
+<p>Methods of the class <code class="docutils literal notranslate"><span class="pre">RangeTracker</span></code> including this method may get invoked
+by different threads, hence must be made thread-safe, e.g. by using a single
+lock object.</p>
+<dl class="docutils">
+<dt>** General information about consumed and remaining number of split</dt>
+<dd><blockquote class="first">
+<div>points returned by this method. **</div></blockquote>
+<ul class="last simple">
+<li>Before a source read (<code class="docutils literal notranslate"><span class="pre">BoundedSource.read()</span></code> invocation) claims the
+first split point, number of consumed split points is 0. This condition
+holds independent of whether the input is “splittable”. A splittable
+source is a source that has more than one split point.</li>
+<li>Any source read that has only claimed one split point has 0 consumed
+split points since the first split point is the current split point and
+is still being processed. This condition holds independent of whether
+the input is splittable.</li>
+<li>For an empty source read which never invokes
+<code class="docutils literal notranslate"><span class="pre">RangeTracker.try_claim()</span></code>, the consumed number of split points is 0.
+This condition holds independent of whether the input is splittable.</li>
+<li>For a source read which has invoked <code class="docutils literal notranslate"><span class="pre">RangeTracker.try_claim()</span></code> n
+times, the consumed number of split points is  n -1.</li>
+<li>If a <code class="docutils literal notranslate"><span class="pre">BoundedSource</span></code> sets a callback through function
+<code class="docutils literal notranslate"><span class="pre">set_split_points_unclaimed_callback()</span></code>, <code class="docutils literal notranslate"><span class="pre">RangeTracker</span></code> can use that
+callback when determining remaining number of split points.</li>
+<li>Remaining split points should include the split point that is currently
+being consumed by the source read. Hence if the above callback returns
+an integer value n, remaining number of split points should be (n + 1).</li>
+<li>After last split point is claimed remaining split points becomes 1,
+because this unfinished read itself represents an  unfinished split
+point.</li>
+<li>After all records of the source has been consumed, remaining number of
+split points becomes 0 and consumed number of split points becomes equal
+to the total number of split points within the range being read by the
+source. This method does not address this condition and will continue to
+report number of consumed split points as
+(“total number of split points” - 1) and number of remaining split
+points as 1. A runner that performs the reading of the source can
+detect when all records have been consumed and adjust remaining and
+consumed number of split points accordingly.</li>
+</ul>
+</dd>
+</dl>
+<p>** Examples **</p>
+<ol class="arabic">
+<li><p class="first">A “perfectly splittable” input which can be read in parallel down to the
+individual records.</p>
+<p>Consider a perfectly splittable input that consists of 50 split points.</p>
+</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Before a source read (<code class="docutils literal notranslate"><span class="pre">BoundedSource.read()</span></code> invocation) claims the
+first split point, number of consumed split points is 0 number of
+remaining split points is 50.</li>
+<li>After claiming first split point, consumed number of split points is 0
+and remaining number of split is 50.</li>
+<li>After claiming split point #30, consumed number of split points is 29
+and remaining number of split points is 21.</li>
+<li>After claiming all 50 split points, consumed number of split points is
+49 and remaining number of split points is 1.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">a “block-compressed” file format such as <code class="docutils literal notranslate"><span class="pre">avroio</span></code>, in which a block of
+records has to be read as a whole, but different blocks can be read in
+parallel.</p>
+<p>Consider a block compressed input that consists of 5 blocks.</p>
+</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Before a source read (<code class="docutils literal notranslate"><span class="pre">BoundedSource.read()</span></code> invocation) claims the
+first split point (first block), number of consumed split points is 0
+number of remaining split points is 5.</li>
+<li>After claiming first split point, consumed number of split points is 0
+and remaining number of split is 5.</li>
+<li>After claiming split point #3, consumed number of split points is 2
+and remaining number of split points is 3.</li>
+<li>After claiming all 5 split points, consumed number of split points is
+4 and remaining number of split points is 1.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">an “unsplittable” input such as a cursor in a database or a gzip
+compressed file.</p>
+<p>Such an input is considered to have only a single split point. Number of
+consumed split points is always 0 and number of remaining split points
+is always 1.</p>
+</li>
+</ol>
+<p>By default <code class="docutils literal notranslate"><span class="pre">RangeTracker`</span> <span class="pre">returns</span> <span class="pre">``RangeTracker.SPLIT_POINTS_UNKNOWN</span></code> for
+both consumed and remaining number of split points, which indicates that the
+number of split points consumed and remaining is unknown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A pair that gives consumed and remaining number of split points. Consumed
+number of split points should be an integer larger than or equal to zero
+or <code class="docutils literal notranslate"><span class="pre">RangeTracker.SPLIT_POINTS_UNKNOWN</span></code>. Remaining number of split points
+should be an integer larger than zero or
+<code class="docutils literal notranslate"><span class="pre">RangeTracker.SPLIT_POINTS_UNKNOWN</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.io.filebasedsink.html" class="btn btn-neutral float-right" title="apache_beam.io.filebasedsink module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.io.avroio.html" class="btn btn-neutral float-left" title="apache_beam.io.avroio module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

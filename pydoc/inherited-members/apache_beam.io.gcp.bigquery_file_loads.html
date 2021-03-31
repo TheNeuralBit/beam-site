@@ -1,0 +1,2162 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.io.gcp.bigquery_file_loads module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.io.gcp.bigquery_io_metadata module" href="apache_beam.io.gcp.bigquery_io_metadata.html" />
+    <link rel="prev" title="apache_beam.io.gcp.bigquery_avro_tools module" href="apache_beam.io.gcp.bigquery_avro_tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.io.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.aws.html">apache_beam.io.aws package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.azure.html">apache_beam.io.azure package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.external.html">apache_beam.io.external package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.flink.html">apache_beam.io.flink package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="apache_beam.io.gcp.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="apache_beam.io.gcp.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.io.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.html">apache_beam.io package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a> &raquo;</li>
+        
+      <li>apache_beam.io.gcp.bigquery_file_loads module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.io.gcp.bigquery_file_loads.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.io.gcp.bigquery_file_loads">
+<span id="apache-beam-io-gcp-bigquery-file-loads-module"></span><h1>apache_beam.io.gcp.bigquery_file_loads module<a class="headerlink" href="#module-apache_beam.io.gcp.bigquery_file_loads" title="Permalink to this headline">¶</a></h1>
+<p>Functionality to perform file loads into BigQuery for Batch and Streaming
+pipelines.</p>
+<p>This source is able to work around BigQuery load quotas and limitations. When
+destinations are dynamic, or when data for a single job is too large, the data
+will be split into multiple jobs.</p>
+<p>NOTHING IN THIS FILE HAS BACKWARDS COMPATIBILITY GUARANTEES.</p>
+<dl class="function">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.file_prefix_generator">
+<code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">file_prefix_generator</code><span class="sig-paren">(</span><em>with_validation=True</em>, <em>pipeline_gcs_location=None</em>, <em>temp_location=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#file_prefix_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.file_prefix_generator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">WriteRecordsToFile</code><span class="sig-paren">(</span><em>schema</em>, <em>max_files_per_bundle=20</em>, <em>max_file_size=4398046511104</em>, <em>file_format=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteRecordsToFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>Write input records to files before triggering a load job.</p>
+<p>This transform keeps up to <code class="docutils literal notranslate"><span class="pre">max_files_per_bundle</span></code> files open to write to. It
+receives (destination, record) tuples, and it writes the records to different
+files for each destination.</p>
+<p>If there are more than <code class="docutils literal notranslate"><span class="pre">max_files_per_bundle</span></code> destinations that we need to
+write to, then those records are grouped by their destination, and later
+written to files by <code class="docutils literal notranslate"><span class="pre">WriteGroupedRecordsToFile</span></code>.</p>
+<p>It outputs two PCollections.</p>
+<p>Initialize a <a class="reference internal" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile" title="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">WriteRecordsToFile</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>max_files_per_bundle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The maximum number of files that can be kept
+open during execution of this step in a worker. This is to avoid over-
+whelming the worker memory.</li>
+<li><strong>max_file_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The maximum size in bytes for a file to be used in
+an export job.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.UNWRITTEN_RECORD_TAG">
+<code class="descname">UNWRITTEN_RECORD_TAG</code><em class="property"> = 'UnwrittenRecords'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.UNWRITTEN_RECORD_TAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.WRITTEN_FILE_TAG">
+<code class="descname">WRITTEN_FILE_TAG</code><em class="property"> = 'WrittenFiles'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.WRITTEN_FILE_TAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteRecordsToFile.display_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.display_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteRecordsToFile.start_bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em>, <em>file_prefix</em>, <em>*schema_side_inputs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteRecordsToFile.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a tuple with (destination, row) and write to file or spill out.</p>
+<p>Destination may be a <code class="docutils literal notranslate"><span class="pre">TableReference</span></code> or a string, and row is a
+Python dictionary for a row to be inserted to BigQuery.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteRecordsToFile.finish_bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteRecordsToFile.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">WriteGroupedRecordsToFile</code><span class="sig-paren">(</span><em>schema</em>, <em>max_file_size=4398046511104</em>, <em>file_format=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteGroupedRecordsToFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>Receives collection of dest-iterable(records), writes it to files.</p>
+<p>This is different from <code class="docutils literal notranslate"><span class="pre">WriteRecordsToFile</span></code> because it receives records
+grouped by destination. This means that it’s not necessary to keep multiple
+file descriptors open, because we know for sure when records for a single
+destination have been written out.</p>
+<p>Experimental; no backwards compatibility guarantees.</p>
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em>, <em>file_prefix</em>, <em>*schema_side_inputs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WriteGroupedRecordsToFile.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before a bundle of elements is processed on a worker.</p>
+<p>Elements to be processed are split into bundles and distributed
+to workers. Before a worker calls process() on the first element
+of its bundle, it calls this method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WriteGroupedRecordsToFile.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">TriggerCopyJobs</code><span class="sig-paren">(</span><em>create_disposition=None</em>, <em>write_disposition=None</em>, <em>test_client=None</em>, <em>step_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerCopyJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>Launches jobs to copy from temporary tables into the main target table.</p>
+<p>When a job needs to write to multiple destination tables, or when a single
+destination table needs to have multiple load jobs to write to it, files are
+loaded into temporary tables, and those tables are later copied to the
+destination tables.</p>
+<p>This transform emits (destination, job_reference) pairs.</p>
+<dl class="docutils">
+<dt>TODO(BEAM-7822): In file loads method of writing to BigQuery,</dt>
+<dd>copying from temp_tables to destination_table is not atomic.
+See: <a class="reference external" href="https://issues.apache.org/jira/browse/BEAM-7822">https://issues.apache.org/jira/browse/BEAM-7822</a></dd>
+</dl>
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerCopyJobs.display_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.display_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerCopyJobs.start_bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em>, <em>job_name_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerCopyJobs.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerCopyJobs.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">TriggerLoadJobs</code><span class="sig-paren">(</span><em>schema=None</em>, <em>create_disposition=None</em>, <em>write_disposition=None</em>, <em>test_client=None</em>, <em>temporary_tables=False</em>, <em>additional_bq_parameters=None</em>, <em>source_format=None</em>, <em>step_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerLoadJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>Triggers the import jobs to BQ.</p>
+<p>Experimental; no backwards compatibility guarantees.</p>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.TEMP_TABLES">
+<code class="descname">TEMP_TABLES</code><em class="property"> = 'TemporaryTables'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.TEMP_TABLES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerLoadJobs.display_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.display_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerLoadJobs.start_bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em>, <em>load_job_name_prefix</em>, <em>*schema_side_inputs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#TriggerLoadJobs.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.TriggerLoadJobs.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">PartitionFiles</code><span class="sig-paren">(</span><em>max_partition_size</em>, <em>max_files_per_partition</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#PartitionFiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.MULTIPLE_PARTITIONS_TAG">
+<code class="descname">MULTIPLE_PARTITIONS_TAG</code><em class="property"> = 'MULTIPLE_PARTITIONS'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.MULTIPLE_PARTITIONS_TAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.SINGLE_PARTITION_TAG">
+<code class="descname">SINGLE_PARTITION_TAG</code><em class="property"> = 'SINGLE_PARTITION'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.SINGLE_PARTITION_TAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.Partition">
+<em class="property">class </em><code class="descname">Partition</code><span class="sig-paren">(</span><em>max_size</em>, <em>max_files</em>, <em>files=None</em>, <em>size=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#PartitionFiles.Partition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.Partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.Partition.can_accept">
+<code class="descname">can_accept</code><span class="sig-paren">(</span><em>file_size</em>, <em>no_of_files=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#PartitionFiles.Partition.can_accept"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.Partition.can_accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.Partition.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>file_path</em>, <em>file_size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#PartitionFiles.Partition.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.Partition.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#PartitionFiles.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before a bundle of elements is processed on a worker.</p>
+<p>Elements to be processed are split into bundles and distributed
+to workers. Before a worker calls process() on the first element
+of its bundle, it calls this method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.PartitionFiles.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">WaitForBQJobs</code><span class="sig-paren">(</span><em>test_client=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WaitForBQJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<p>Takes in a series of BQ job names as side input, and waits for all of them.</p>
+<p>If any job fails, it will fail. If all jobs succeed, it will succeed.</p>
+<p>Experimental; no backwards compatibility guarantees.</p>
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WaitForBQJobs.start_bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em>, <em>dest_ids_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#WaitForBQJobs.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.WaitForBQJobs.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">DeleteTablesFn</code><span class="sig-paren">(</span><em>test_client=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#DeleteTablesFn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#DeleteTablesFn.start_bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>table_reference</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#DeleteTablesFn.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.DeleteTablesFn.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_file_loads.</code><code class="descname">BigQueryBatchFileLoads</code><span class="sig-paren">(</span><em>destination</em>, <em>schema=None</em>, <em>custom_gcs_temp_location=None</em>, <em>create_disposition=None</em>, <em>write_disposition=None</em>, <em>triggering_frequency=None</em>, <em>with_auto_sharding=False</em>, <em>temp_file_format=None</em>, <em>max_file_size=None</em>, <em>max_files_per_bundle=None</em>, <em>max_partition_size=None</em>, <em>max_files_per_partition=None</em>, <em>additional_bq_parameters=None</em>, <em>table_side_inputs=None</em>, <em>schema_side_inputs=None</em>, <em>test_client=None</em>, <em>validate=True</em>, <em>is_streaming_pipeline=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#BigQueryBatchFileLoads"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>Takes in a set of elements, and inserts them to BigQuery via batch loads.</p>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.DESTINATION_JOBID_PAIRS">
+<code class="descname">DESTINATION_JOBID_PAIRS</code><em class="property"> = 'destination_load_jobid_pairs'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.DESTINATION_JOBID_PAIRS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.DESTINATION_FILE_PAIRS">
+<code class="descname">DESTINATION_FILE_PAIRS</code><em class="property"> = 'destination_file_pairs'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.DESTINATION_FILE_PAIRS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.DESTINATION_COPY_JOBID_PAIRS">
+<code class="descname">DESTINATION_COPY_JOBID_PAIRS</code><em class="property"> = 'destination_copy_jobid_pairs'</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.DESTINATION_COPY_JOBID_PAIRS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.COUNT">
+<code class="descname">COUNT</code><em class="property"> = 0</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.COUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.verify">
+<code class="descname">verify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#BigQueryBatchFileLoads.verify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.verify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcoll</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_file_loads.html#BigQueryBatchFileLoads.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_file_loads.BigQueryBatchFileLoads.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.io.gcp.bigquery_io_metadata.html" class="btn btn-neutral float-right" title="apache_beam.io.gcp.bigquery_io_metadata module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.io.gcp.bigquery_avro_tools.html" class="btn btn-neutral float-left" title="apache_beam.io.gcp.bigquery_avro_tools module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

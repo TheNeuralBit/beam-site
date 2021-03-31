@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.io.gcp.pubsub module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.io.gcp.pubsub_it_pipeline module" href="apache_beam.io.gcp.pubsub_it_pipeline.html" />
+    <link rel="prev" title="apache_beam.io.gcp.gcsio_overrides module" href="apache_beam.io.gcp.gcsio_overrides.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.io.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.aws.html">apache_beam.io.aws package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.azure.html">apache_beam.io.azure package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.external.html">apache_beam.io.external package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.flink.html">apache_beam.io.flink package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="apache_beam.io.gcp.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="apache_beam.io.gcp.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.io.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.html">apache_beam.io package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a> &raquo;</li>
+        
+      <li>apache_beam.io.gcp.pubsub module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.io.gcp.pubsub.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.io.gcp.pubsub">
+<span id="apache-beam-io-gcp-pubsub-module"></span><h1>apache_beam.io.gcp.pubsub module<a class="headerlink" href="#module-apache_beam.io.gcp.pubsub" title="Permalink to this headline">¶</a></h1>
+<p>Google Cloud PubSub sources and sinks.</p>
+<p>Cloud Pub/Sub sources and sinks are currently supported only in streaming
+pipelines, during remote execution.</p>
+<p>This API is currently under development and is subject to change.</p>
+<dl class="class">
+<dt id="apache_beam.io.gcp.pubsub.PubsubMessage">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">PubsubMessage</code><span class="sig-paren">(</span><em>data</em>, <em>attributes</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#PubsubMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubsubMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Represents a Cloud Pub/Sub message.</p>
+<p>Message payload includes the data and attributes fields. For the payload to be
+valid, at least one of its fields must be non-empty.</p>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.PubsubMessage.data">
+<code class="descname">data</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubsubMessage.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>(bytes) Message data. May be None.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.PubsubMessage.attributes">
+<code class="descname">attributes</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubsubMessage.attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>(dict) Key-value map of str to str, containing both user-defined
+and service generated attributes (such as id_label and
+timestamp_attribute). May be None.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">ReadFromPubSub</code><span class="sig-paren">(</span><em>topic=None</em>, <em>subscription=None</em>, <em>id_label=None</em>, <em>with_attributes=False</em>, <em>timestamp_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#ReadFromPubSub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransform</span></code> for reading from Cloud Pub/Sub.</p>
+<p>Initializes <code class="docutils literal notranslate"><span class="pre">ReadFromPubSub</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topic</strong> – Cloud Pub/Sub topic in the form
+“projects/&lt;project&gt;/topics/&lt;topic&gt;”. If provided, subscription must be
+None.</li>
+<li><strong>subscription</strong> – Existing Cloud Pub/Sub subscription to use in the
+form “projects/&lt;project&gt;/subscriptions/&lt;subscription&gt;”. If not
+specified, a temporary subscription will be created from the specified
+topic. If provided, topic must be None.</li>
+<li><strong>id_label</strong> – The attribute on incoming Pub/Sub messages to use as a unique
+record identifier. When specified, the value of this attribute (which
+can be any string that uniquely identifies the record) will be used for
+deduplication of messages. If not provided, we cannot guarantee
+that no duplicate data will be delivered on the Pub/Sub stream. In this
+case, deduplication of the stream will be strictly best effort.</li>
+<li><strong>with_attributes</strong> – True - output elements will be <a class="reference internal" href="#apache_beam.io.gcp.pubsub.PubsubMessage" title="apache_beam.io.gcp.pubsub.PubsubMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PubsubMessage</span></code></a> objects.
+False - output elements will be of type <code class="docutils literal notranslate"><span class="pre">bytes</span></code> (message
+data only).</li>
+<li><strong>timestamp_attribute</strong> – <p>Message value to use as element timestamp. If None,
+uses message publishing time as the timestamp.</p>
+<p>Timestamp values should be in one of two formats:</p>
+<ul>
+<li>A numerical value representing the number of milliseconds since the
+Unix epoch.</li>
+<li>A string in RFC 3339 format, UTC timezone. Example:
+<code class="docutils literal notranslate"><span class="pre">2015-10-29T23:41:41.123Z</span></code>. The sub-second component of the
+timestamp is optional, and digits beyond the first three (i.e., time
+units smaller than milliseconds) may be ignored.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pvalue</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#ReadFromPubSub.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#ReadFromPubSub.to_runner_api_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.ReadFromPubSub.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadFromPubSub.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="apache_beam.io.gcp.pubsub.ReadStringsFromPubSub">
+<code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">ReadStringsFromPubSub</code><span class="sig-paren">(</span><em>topic=None</em>, <em>subscription=None</em>, <em>id_label=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#ReadStringsFromPubSub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.ReadStringsFromPubSub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="apache_beam.io.gcp.pubsub.WriteStringsToPubSub">
+<code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">WriteStringsToPubSub</code><span class="sig-paren">(</span><em>topic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteStringsToPubSub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteStringsToPubSub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">WriteToPubSub</code><span class="sig-paren">(</span><em>topic</em>, <em>with_attributes=False</em>, <em>id_label=None</em>, <em>timestamp_attribute=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteToPubSub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransform</span></code> for writing messages to Cloud Pub/Sub.</p>
+<p>Initializes <code class="docutils literal notranslate"><span class="pre">WriteToPubSub</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topic</strong> – Cloud Pub/Sub topic in the form “/topics/&lt;project&gt;/&lt;topic&gt;”.</li>
+<li><strong>with_attributes</strong> – True - input elements will be <a class="reference internal" href="#apache_beam.io.gcp.pubsub.PubsubMessage" title="apache_beam.io.gcp.pubsub.PubsubMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PubsubMessage</span></code></a> objects.
+False - input elements will be of type <code class="docutils literal notranslate"><span class="pre">bytes</span></code> (message
+data only).</li>
+<li><strong>id_label</strong> – If set, will set an attribute for each Cloud Pub/Sub message
+with the given name and a unique value. This attribute can then be used
+in a ReadFromPubSub PTransform to deduplicate messages.</li>
+<li><strong>timestamp_attribute</strong> – If set, will set an attribute for each Cloud Pub/Sub
+message with the given name and the message’s publish time as the value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.message_to_proto_str">
+<em class="property">static </em><code class="descname">message_to_proto_str</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteToPubSub.message_to_proto_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.message_to_proto_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.bytes_to_proto_str">
+<em class="property">static </em><code class="descname">bytes_to_proto_str</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteToPubSub.bytes_to_proto_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.bytes_to_proto_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcoll</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteToPubSub.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteToPubSub.to_runner_api_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#WriteToPubSub.display_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.display_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.WriteToPubSub.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.WriteToPubSub.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.pubsub.PubSubSourceDescriptor">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">PubSubSourceDescriptor</code><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#PubSubSourceDescriptor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubSubSourceDescriptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<p>A PubSub source descriptor for <code class="docutils literal notranslate"><span class="pre">MultipleReadFromPubSub`</span></code></p>
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.source">
+<code class="descname">source</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Existing Cloud Pub/Sub topic or subscription to use in the
+form “projects/&lt;project&gt;/topics/&lt;topic&gt;” or
+“projects/&lt;project&gt;/subscriptions/&lt;subscription&gt;”</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.id_label">
+<code class="descname">id_label</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.id_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>The attribute on incoming Pub/Sub messages to use as a unique
+record identifier. When specified, the value of this attribute (which
+can be any string that uniquely identifies the record) will be used for
+deduplication of messages. If not provided, we cannot guarantee
+that no duplicate data will be delivered on the Pub/Sub stream. In this
+case, deduplication of the stream will be strictly best effort.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.timestamp_attribute">
+<code class="descname">timestamp_attribute</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.timestamp_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message value to use as element timestamp. If None,
+uses message publishing time as the timestamp.</p>
+<p>Timestamp values should be in one of two formats:</p>
+<ul class="simple">
+<li>A numerical value representing the number of milliseconds since the
+Unix epoch.</li>
+<li>A string in RFC 3339 format, UTC timezone. Example:
+<code class="docutils literal notranslate"><span class="pre">2015-10-29T23:41:41.123Z</span></code>. The sub-second component of the
+timestamp is optional, and digits beyond the first three (i.e., time
+units smaller than milliseconds) may be ignored.</li>
+</ul>
+</dd></dl>
+
+<p>Create new instance of PubSubSourceDescriptor(source, id_label, timestamp_attribute)</p>
+<dl class="attribute">
+<dt>
+<code class="descname">source</code></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">id_label</code></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">timestamp_attribute</code></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.count">
+<code class="descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.index">
+<code class="descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.PubSubSourceDescriptor.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.pubsub.</code><code class="descname">MultipleReadFromPubSub</code><span class="sig-paren">(</span><em>pubsub_source_descriptors</em>, <em>with_attributes=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#MultipleReadFromPubSub"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.ptransform.PTransform</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransform</span></code> that expands <code class="docutils literal notranslate"><span class="pre">ReadFromPubSub</span></code> to read from multiple
+<code class="docutils literal notranslate"><span class="pre">PubSubSourceDescriptor</span></code>.</p>
+<p>The <cite>MultipleReadFromPubSub</cite> transform allows you to read multiple topics
+and/or subscriptions using just one transform. It is the recommended transform
+to read multiple Pub/Sub sources when the output <cite>PCollection</cite> are going to be
+flattened. The transform takes a list of <cite>PubSubSourceDescriptor</cite> and organize
+them by type (topic / subscription) and project::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_1</span> <span class="o">=</span> <span class="n">PubSubSourceDescriptor</span><span class="p">(</span><span class="s1">&#39;projects/myproject/topics/a_topic&#39;</span><span class="p">)</span>
+<span class="n">topic_2</span> <span class="o">=</span> <span class="n">PubSubSourceDescriptor</span><span class="p">(</span>
+            <span class="s1">&#39;projects/myproject2/topics/b_topic&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;my_label&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;my_timestamp_attribute&#39;</span><span class="p">)</span>
+<span class="n">subscription_1</span> <span class="o">=</span> <span class="n">PubSubSourceDescriptor</span><span class="p">(</span>
+            <span class="s1">&#39;projects/myproject/subscriptions/a_subscription&#39;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pipeline</span> <span class="o">|</span> <span class="n">MultipleReadFromPubSub</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">topic_1</span><span class="p">,</span> <span class="n">topic_2</span><span class="p">,</span> <span class="n">subscription_1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Initializes <code class="docutils literal notranslate"><span class="pre">PubSubMultipleReader</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pubsub_source_descriptors</strong> – List of Cloud Pub/Sub topics or subscriptions
+of type <cite>~PubSubSourceDescriptor</cite>.</li>
+<li><strong>with_attributes</strong> – True - input elements will be <a class="reference internal" href="#apache_beam.io.gcp.pubsub.PubsubMessage" title="apache_beam.io.gcp.pubsub.PubsubMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PubsubMessage</span></code></a> objects.
+False - input elements will be of type <code class="docutils literal notranslate"><span class="pre">bytes</span></code> (message data only).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, Union[bytes, str, google.protobuf.message.Message]]<a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.get_windowing">
+<code class="descname">get_windowing</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.get_windowing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the window function to be associated with transform’s output.</p>
+<p>By default most transforms just return the windowing function associated
+with the input PCollection (or the first input if several).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>unused_input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.label">
+<code class="descname">label</code><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.pipeline">
+<code class="descname">pipeline</code><em class="property"> = None</em><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.pipeline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.runner_api_requires_keyed_input">
+<code class="descname">runner_api_requires_keyed_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.runner_api_requires_keyed_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.side_inputs">
+<code class="descname">side_inputs</code><em class="property"> = ()</em><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.side_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em>, <em>has_parts=False</em>, <em>**extra_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.to_runner_api_pickled">
+<code class="descname">to_runner_api_pickled</code><span class="sig-paren">(</span><em>unused_context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.to_runner_api_pickled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.type_check_inputs">
+<code class="descname">type_check_inputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.type_check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.type_check_inputs_or_outputs">
+<code class="descname">type_check_inputs_or_outputs</code><span class="sig-paren">(</span><em>pvalueish</em>, <em>input_or_output</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.type_check_inputs_or_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.type_check_outputs">
+<code class="descname">type_check_outputs</code><span class="sig-paren">(</span><em>pvalueish</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.type_check_outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>input_type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the input type of a
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input_type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom
+class, or an instance of a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>input_type_hint</strong> is not a valid type-hint.
+See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">apache_beam.typehints.typehints.validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance
+of this particular <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a>
+object. This allows chaining type-hinting related methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>type_hint</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the output type of
+a <a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> with a type-hint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_hint</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – An instance of an allowed built-in type, a custom class,
+or a <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConstraint</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> – If <strong>type_hint</strong> is not a valid type-hint. See
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_composite_type_param()</span></code>
+for further details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A reference to the instance of this particular
+<a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">PTransform</span></code></a> object. This allows chaining type-hinting related
+methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="apache_beam.transforms.ptransform.html#apache_beam.transforms.ptransform.PTransform" title="apache_beam.transforms.ptransform.PTransform">PTransform</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>pcol</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/pubsub.html#MultipleReadFromPubSub.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.pubsub.MultipleReadFromPubSub.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.io.gcp.pubsub_it_pipeline.html" class="btn btn-neutral float-right" title="apache_beam.io.gcp.pubsub_it_pipeline module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.io.gcp.gcsio_overrides.html" class="btn btn-neutral float-left" title="apache_beam.io.gcp.gcsio_overrides module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

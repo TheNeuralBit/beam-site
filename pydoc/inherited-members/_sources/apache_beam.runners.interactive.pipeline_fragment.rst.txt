@@ -1,0 +1,8 @@
+apache\_beam.runners.interactive.pipeline\_fragment module
+==========================================================
+
+.. automodule:: apache_beam.runners.interactive.pipeline_fragment
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

@@ -1,0 +1,8 @@
+apache\_beam.typehints.row\_type module
+=======================================
+
+.. automodule:: apache_beam.typehints.row_type
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

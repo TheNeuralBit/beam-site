@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.io.gcp.bigquery_io_read_pipeline module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.io.gcp.bigquery_read_internal module" href="apache_beam.io.gcp.bigquery_read_internal.html" />
+    <link rel="prev" title="apache_beam.io.gcp.bigquery_io_metadata module" href="apache_beam.io.gcp.bigquery_io_metadata.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.io.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.aws.html">apache_beam.io.aws package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.azure.html">apache_beam.io.azure package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.external.html">apache_beam.io.external package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.io.flink.html">apache_beam.io.flink package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="apache_beam.io.gcp.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="apache_beam.io.gcp.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.io.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.html">apache_beam.io package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.io.gcp.html">apache_beam.io.gcp package</a> &raquo;</li>
+        
+      <li>apache_beam.io.gcp.bigquery_io_read_pipeline module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.io.gcp.bigquery_io_read_pipeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.io.gcp.bigquery_io_read_pipeline">
+<span id="apache-beam-io-gcp-bigquery-io-read-pipeline-module"></span><h1>apache_beam.io.gcp.bigquery_io_read_pipeline module<a class="headerlink" href="#module-apache_beam.io.gcp.bigquery_io_read_pipeline" title="Permalink to this headline">¶</a></h1>
+<p>A Dataflow job that counts the number of rows in a BQ table.</p>
+<p>Can be configured to simulate slow reading for a given number of rows.</p>
+<dl class="class">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown">
+<em class="property">class </em><code class="descclassname">apache_beam.io.gcp.bigquery_io_read_pipeline.</code><code class="descname">RowToStringWithSlowDown</code><span class="sig-paren">(</span><em>*unused_args</em>, <em>**unused_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_io_read_pipeline.html#RowToStringWithSlowDown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.transforms.core.html#apache_beam.transforms.core.DoFn" title="apache_beam.transforms.core.DoFn"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core.DoFn</span></code></a></p>
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>element</em>, <em>num_slow=0</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_io_read_pipeline.html#RowToStringWithSlowDown.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.BundleFinalizerParam">
+<code class="descname">BundleFinalizerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.BundleFinalizerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._BundleFinalizerParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.DoFnProcessParams">
+<code class="descname">DoFnProcessParams</code><em class="property"> = [ElementParam, SideInputParam, TimestampParam, WindowParam, &lt;class 'apache_beam.transforms.core._WatermarkEstimatorParam'&gt;, PaneInfoParam, &lt;class 'apache_beam.transforms.core._BundleFinalizerParam'&gt;, KeyParam, &lt;class 'apache_beam.transforms.core._StateDoFnParam'&gt;, &lt;class 'apache_beam.transforms.core._TimerDoFnParam'&gt;]</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.DoFnProcessParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.DynamicTimerTagParam">
+<code class="descname">DynamicTimerTagParam</code><em class="property"> = DynamicTimerTagParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.DynamicTimerTagParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.ElementParam">
+<code class="descname">ElementParam</code><em class="property"> = ElementParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.ElementParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.KeyParam">
+<code class="descname">KeyParam</code><em class="property"> = KeyParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.KeyParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.PaneInfoParam">
+<code class="descname">PaneInfoParam</code><em class="property"> = PaneInfoParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.PaneInfoParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.RestrictionParam">
+<code class="descname">RestrictionParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.RestrictionParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._RestrictionDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.SideInputParam">
+<code class="descname">SideInputParam</code><em class="property"> = SideInputParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.SideInputParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.StateParam">
+<code class="descname">StateParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.StateParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._StateDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.TimerParam">
+<code class="descname">TimerParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.TimerParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._TimerDoFnParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.TimestampParam">
+<code class="descname">TimestampParam</code><em class="property"> = TimestampParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.TimestampParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.WatermarkEstimatorParam">
+<code class="descname">WatermarkEstimatorParam</code><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.WatermarkEstimatorParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.transforms.core._WatermarkEstimatorParam</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.WindowParam">
+<code class="descname">WindowParam</code><em class="property"> = WindowParam</em><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.WindowParam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.default_label">
+<code class="descname">default_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.default_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.default_type_hints">
+<code class="descname">default_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.default_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.display_data">
+<code class="descname">display_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the display data associated to a pipeline component.</p>
+<p>It should be reimplemented in pipeline components that wish to have
+static display data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary containing <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.
+The value might be an integer, float or string value; a
+<a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.DisplayDataItem" title="apache_beam.transforms.display.DisplayDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayDataItem</span></code></a> for values that have more data
+(e.g. short value, label, url); or
+a <a class="reference internal" href="apache_beam.transforms.display.html#apache_beam.transforms.display.HasDisplayData" title="apache_beam.transforms.display.HasDisplayData"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasDisplayData</span></code></a> instance that has
+more display data that should be picked up. For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;string_value&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+  <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mf">3.14159265</span><span class="p">,</span>
+  <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="n">DisplayDataItem</span><span class="p">(</span><span class="s1">&#39;apache.org&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;key5&#39;</span><span class="p">:</span> <span class="n">subComponent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>, Any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.finish_bundle">
+<code class="descname">finish_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.finish_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a bundle of elements is processed on a worker.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.from_callable">
+<em class="property">static </em><code class="descname">from_callable</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.from_callable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.from_runner_api">
+<em class="property">classmethod </em><code class="descname">from_runner_api</code><span class="sig-paren">(</span><em>fn_proto</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.from_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts from an FunctionSpec to a Fn object.</p>
+<p>Prefer registering a urn with its parameter type and constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.get_function_arguments">
+<code class="descname">get_function_arguments</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.get_function_arguments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.get_type_hints">
+<code class="descname">get_type_hints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets and/or initializes type hints for this object.</p>
+<p>If type hints have not been set, attempts to initialize type hints in this
+order:
+- Using self.default_type_hints().
+- Using self.__class__ type hints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.infer_output_type">
+<code class="descname">infer_output_type</code><span class="sig-paren">(</span><em>input_type</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.infer_output_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.register_pickle_urn">
+<em class="property">classmethod </em><code class="descname">register_pickle_urn</code><span class="sig-paren">(</span><em>pickle_urn</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.register_pickle_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers and implements the given urn via pickling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.register_urn">
+<em class="property">classmethod </em><code class="descname">register_urn</code><span class="sig-paren">(</span><em>urn</em>, <em>parameter_type</em>, <em>fn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.register_urn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a urn with a constructor.</p>
+<p>For example, if ‘beam:fn:foo’ had parameter type FooPayload, one could
+write <cite>RunnerApiFn.register_urn(‘bean:fn:foo’, FooPayload, foo_from_proto)</cite>
+where foo_from_proto took as arguments a FooPayload and a PipelineContext.
+This function can also be used as a decorator rather than passing the
+callable in as the final parameter.</p>
+<p>A corresponding to_runner_api_parameter method would be expected that
+returns the tuple (‘beam:fn:foo’, FooPayload)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to prepare an instance for processing bundles of elements.</p>
+<p>This is a good place to initialize transient in-memory resources, such as
+network connections. The resources can then be disposed in
+<code class="docutils literal notranslate"><span class="pre">DoFn.teardown</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.start_bundle">
+<code class="descname">start_bundle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.start_bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before a bundle of elements is processed on a worker.</p>
+<p>Elements to be processed are split into bundles and distributed
+to workers. Before a worker calls process() on the first element
+of its bundle, it calls this method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.teardown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to use to clean up this instance before it is discarded.</p>
+<p>A runner will do its best to call this method on any given instance to
+prevent leaks of transient resources, however, there may be situations where
+this is impossible (e.g. process crash, hardware failure, etc.) or
+unnecessary (e.g. the pipeline is shutting down and the process is about to
+be killed anyway, so all transient resources will be released automatically
+by the OS). In these cases, the call may not happen. It will also not be
+retried, because in such situations the DoFn instance no longer exists, so
+there’s no instance to retry it on.</p>
+<p>Thus, all work that depends on input elements, and all externally important
+side effects, must be performed in <code class="docutils literal notranslate"><span class="pre">DoFn.process</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DoFn.finish_bundle</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.to_runner_api">
+<code class="descname">to_runner_api</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.to_runner_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an FunctionSpec encoding this Fn.</p>
+<p>Prefer overriding self.to_runner_api_parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.to_runner_api_parameter">
+<code class="descname">to_runner_api_parameter</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.to_runner_api_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.unbounded_per_element">
+<em class="property">static </em><code class="descname">unbounded_per_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.unbounded_per_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator on process fn specifying that the fn performs an unbounded
+amount of work per input element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.with_input_types">
+<code class="descname">with_input_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.with_input_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.with_output_types">
+<code class="descname">with_output_types</code><span class="sig-paren">(</span><em>*arg_hints</em>, <em>**kwarg_hints</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.RowToStringWithSlowDown.with_output_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="apache_beam.io.gcp.bigquery_io_read_pipeline.run">
+<code class="descclassname">apache_beam.io.gcp.bigquery_io_read_pipeline.</code><code class="descname">run</code><span class="sig-paren">(</span><em>argv=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/io/gcp/bigquery_io_read_pipeline.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.io.gcp.bigquery_io_read_pipeline.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.io.gcp.bigquery_read_internal.html" class="btn btn-neutral float-right" title="apache_beam.io.gcp.bigquery_read_internal module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.io.gcp.bigquery_io_metadata.html" class="btn btn-neutral float-left" title="apache_beam.io.gcp.bigquery_io_metadata module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+apache\_beam.transforms.external\_java module
+=============================================
+
+.. automodule:: apache_beam.transforms.external_java
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

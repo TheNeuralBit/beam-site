@@ -1,0 +1,8 @@
+apache\_beam.io.textio module
+=============================
+
+.. automodule:: apache_beam.io.textio
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

@@ -1,0 +1,8 @@
+apache\_beam.metrics.metricbase module
+======================================
+
+.. automodule:: apache_beam.metrics.metricbase
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

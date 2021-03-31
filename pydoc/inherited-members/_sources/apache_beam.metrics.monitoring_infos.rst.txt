@@ -1,0 +1,8 @@
+apache\_beam.metrics.monitoring\_infos module
+=============================================
+
+.. automodule:: apache_beam.metrics.monitoring_infos
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

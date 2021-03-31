@@ -1,0 +1,8 @@
+apache\_beam.dataframe.io module
+================================
+
+.. automodule:: apache_beam.dataframe.io
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:

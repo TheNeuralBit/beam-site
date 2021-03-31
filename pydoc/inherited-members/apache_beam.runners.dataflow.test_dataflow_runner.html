@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>apache_beam.runners.dataflow.test_dataflow_runner module &mdash; Apache Beam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="apache_beam.runners.direct package" href="apache_beam.runners.direct.html" />
+    <link rel="prev" title="apache_beam.runners.dataflow.ptransform_overrides module" href="apache_beam.runners.dataflow.ptransform_overrides.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Apache Beam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.coders.html">apache_beam.coders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.dataframe.html">apache_beam.dataframe package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.io.html">apache_beam.io package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.metrics.html">apache_beam.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.ml.html">apache_beam.ml package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.options.html">apache_beam.options package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache_beam.runners.html">apache_beam.runners package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="apache_beam.runners.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="apache_beam.runners.dataflow.html">apache_beam.runners.dataflow package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="apache_beam.runners.dataflow.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="apache_beam.runners.dataflow.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.direct.html">apache_beam.runners.direct package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.interactive.html">apache_beam.runners.interactive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.internal.html">apache_beam.runners.internal package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache_beam.runners.job.html">apache_beam.runners.job package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache_beam.runners.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.transforms.html">apache_beam.transforms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.typehints.html">apache_beam.typehints package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.error.html">apache_beam.error module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pipeline.html">apache_beam.pipeline module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apache_beam.pvalue.html">apache_beam.pvalue module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Apache Beam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="apache_beam.runners.html">apache_beam.runners package</a> &raquo;</li>
+        
+          <li><a href="apache_beam.runners.dataflow.html">apache_beam.runners.dataflow package</a> &raquo;</li>
+        
+      <li>apache_beam.runners.dataflow.test_dataflow_runner module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apache_beam.runners.dataflow.test_dataflow_runner.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apache_beam.runners.dataflow.test_dataflow_runner">
+<span id="apache-beam-runners-dataflow-test-dataflow-runner-module"></span><h1>apache_beam.runners.dataflow.test_dataflow_runner module<a class="headerlink" href="#module-apache_beam.runners.dataflow.test_dataflow_runner" title="Permalink to this headline">¶</a></h1>
+<p>Wrapper of Beam runners that’s built for running and verifying e2e tests.</p>
+<dl class="class">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner">
+<em class="property">class </em><code class="descclassname">apache_beam.runners.dataflow.test_dataflow_runner.</code><code class="descname">TestDataflowRunner</code><span class="sig-paren">(</span><em>cache=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/dataflow/test_dataflow_runner.html#TestDataflowRunner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.runners.dataflow.dataflow_runner.html#apache_beam.runners.dataflow.dataflow_runner.DataflowRunner" title="apache_beam.runners.dataflow.dataflow_runner.DataflowRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.runners.dataflow.dataflow_runner.DataflowRunner</span></code></a></p>
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_pipeline">
+<code class="descname">run_pipeline</code><span class="sig-paren">(</span><em>pipeline</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/dataflow/test_dataflow_runner.html#TestDataflowRunner.run_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute test pipeline and verify test matcher</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.build_console_url">
+<code class="descname">build_console_url</code><span class="sig-paren">(</span><em>options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/dataflow/test_dataflow_runner.html#TestDataflowRunner.build_console_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.build_console_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a console url of Dataflow job.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.wait_until_in_state">
+<code class="descname">wait_until_in_state</code><span class="sig-paren">(</span><em>expected_state</em>, <em>timeout=600</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apache_beam/runners/dataflow/test_dataflow_runner.html#TestDataflowRunner.wait_until_in_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.wait_until_in_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait until Dataflow pipeline enters a certain state.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride">
+<em class="property">class </em><code class="descname">CombineValuesPTransformOverride</code><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.pipeline.html#apache_beam.pipeline.PTransformOverride" title="apache_beam.pipeline.PTransformOverride"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.pipeline.PTransformOverride</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransformOverride</span></code> for <code class="docutils literal notranslate"><span class="pre">CombineValues</span></code>.</p>
+<p>The DataflowRunner expects that the CombineValues PTransform acts as a
+primitive. So this override replaces the CombineValues with a primitive.</p>
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.get_replacement_inputs">
+<code class="descname">get_replacement_inputs</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.get_replacement_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides inputs that will be passed to the replacement PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – Original AppliedPTransform containing the PTransform
+to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An iterable of PValues that will be passed to the expand() method of the
+replacement PTransform.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.get_replacement_transform">
+<code class="descname">get_replacement_transform</code><span class="sig-paren">(</span><em>ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.get_replacement_transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.get_replacement_transform_for_applied_ptransform">
+<code class="descname">get_replacement_transform_for_applied_ptransform</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.get_replacement_transform_for_applied_ptransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a runner specific override for a given <cite>AppliedPTransform</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – <cite>AppliedPTransform</cite> containing the <cite>PTransform</cite> to be
+replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <cite>PTransform</cite> that will be the replacement for the <cite>PTransform</cite> inside
+the <cite>AppliedPTransform</cite> given as an argument.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.matches">
+<code class="descname">matches</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CombineValuesPTransformOverride.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride">
+<em class="property">class </em><code class="descname">CreatePTransformOverride</code><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.pipeline.html#apache_beam.pipeline.PTransformOverride" title="apache_beam.pipeline.PTransformOverride"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.pipeline.PTransformOverride</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransformOverride</span></code> for <code class="docutils literal notranslate"><span class="pre">Create</span></code> in streaming mode.</p>
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.get_replacement_inputs">
+<code class="descname">get_replacement_inputs</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.get_replacement_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides inputs that will be passed to the replacement PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – Original AppliedPTransform containing the PTransform
+to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An iterable of PValues that will be passed to the expand() method of the
+replacement PTransform.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.get_replacement_transform">
+<code class="descname">get_replacement_transform</code><span class="sig-paren">(</span><em>ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.get_replacement_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a runner specific override for a given PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ptransform</strong> – PTransform to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A PTransform that will be the replacement for the PTransform given as an
+argument.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.get_replacement_transform_for_applied_ptransform">
+<code class="descname">get_replacement_transform_for_applied_ptransform</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.get_replacement_transform_for_applied_ptransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.matches">
+<code class="descname">matches</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.CreatePTransformOverride.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride">
+<em class="property">class </em><code class="descname">JrhReadPTransformOverride</code><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.pipeline.html#apache_beam.pipeline.PTransformOverride" title="apache_beam.pipeline.PTransformOverride"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.pipeline.PTransformOverride</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransformOverride</span></code> for <code class="docutils literal notranslate"><span class="pre">Read(BoundedSource)</span></code></p>
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.get_replacement_inputs">
+<code class="descname">get_replacement_inputs</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.get_replacement_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides inputs that will be passed to the replacement PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – Original AppliedPTransform containing the PTransform
+to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An iterable of PValues that will be passed to the expand() method of the
+replacement PTransform.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.get_replacement_transform">
+<code class="descname">get_replacement_transform</code><span class="sig-paren">(</span><em>ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.get_replacement_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a runner specific override for a given PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ptransform</strong> – PTransform to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A PTransform that will be the replacement for the PTransform given as an
+argument.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.get_replacement_transform_for_applied_ptransform">
+<code class="descname">get_replacement_transform_for_applied_ptransform</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.get_replacement_transform_for_applied_ptransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.matches">
+<code class="descname">matches</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.JrhReadPTransformOverride.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride">
+<em class="property">class </em><code class="descname">NativeReadPTransformOverride</code><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.pipeline.html#apache_beam.pipeline.PTransformOverride" title="apache_beam.pipeline.PTransformOverride"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.pipeline.PTransformOverride</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransformOverride</span></code> for <code class="docutils literal notranslate"><span class="pre">Read</span></code> using native sources.</p>
+<p>The DataflowRunner expects that the Read PTransform using native sources act
+as a primitive. So this override replaces the Read with a primitive.</p>
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.get_replacement_inputs">
+<code class="descname">get_replacement_inputs</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.get_replacement_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides inputs that will be passed to the replacement PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – Original AppliedPTransform containing the PTransform
+to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An iterable of PValues that will be passed to the expand() method of the
+replacement PTransform.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.get_replacement_transform">
+<code class="descname">get_replacement_transform</code><span class="sig-paren">(</span><em>ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.get_replacement_transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.get_replacement_transform_for_applied_ptransform">
+<code class="descname">get_replacement_transform_for_applied_ptransform</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.get_replacement_transform_for_applied_ptransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a runner specific override for a given <cite>AppliedPTransform</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – <cite>AppliedPTransform</cite> containing the <cite>PTransform</cite> to be
+replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <cite>PTransform</cite> that will be the replacement for the <cite>PTransform</cite> inside
+the <cite>AppliedPTransform</cite> given as an argument.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.matches">
+<code class="descname">matches</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.NativeReadPTransformOverride.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride">
+<em class="property">class </em><code class="descname">ReadPTransformOverride</code><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="apache_beam.pipeline.html#apache_beam.pipeline.PTransformOverride" title="apache_beam.pipeline.PTransformOverride"><code class="xref py py-class docutils literal notranslate"><span class="pre">apache_beam.pipeline.PTransformOverride</span></code></a></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">PTransformOverride</span></code> for <code class="docutils literal notranslate"><span class="pre">Read(BoundedSource)</span></code></p>
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.get_replacement_inputs">
+<code class="descname">get_replacement_inputs</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.get_replacement_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides inputs that will be passed to the replacement PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>applied_ptransform</strong> – Original AppliedPTransform containing the PTransform
+to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An iterable of PValues that will be passed to the expand() method of the
+replacement PTransform.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.get_replacement_transform">
+<code class="descname">get_replacement_transform</code><span class="sig-paren">(</span><em>ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.get_replacement_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a runner specific override for a given PTransform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ptransform</strong> – PTransform to be replaced.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A PTransform that will be the replacement for the PTransform given as an
+argument.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.get_replacement_transform_for_applied_ptransform">
+<code class="descname">get_replacement_transform_for_applied_ptransform</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.get_replacement_transform_for_applied_ptransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.matches">
+<code class="descname">matches</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.ReadPTransformOverride.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.add_pcoll_with_auto_sharding">
+<code class="descname">add_pcoll_with_auto_sharding</code><span class="sig-paren">(</span><em>applied_ptransform</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.add_pcoll_with_auto_sharding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>transform</em>, <em>input</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.apply_GroupByKey">
+<code class="descname">apply_GroupByKey</code><span class="sig-paren">(</span><em>transform</em>, <em>pcoll</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.apply_GroupByKey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.apply_PTransform">
+<code class="descname">apply_PTransform</code><span class="sig-paren">(</span><em>transform</em>, <em>input</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.apply_PTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.byte_array_to_json_string">
+<em class="property">static </em><code class="descname">byte_array_to_json_string</code><span class="sig-paren">(</span><em>raw_bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.byte_array_to_json_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements org.apache.beam.sdk.util.StringUtils.byteArrayToJsonString.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.combinefn_visitor">
+<em class="property">static </em><code class="descname">combinefn_visitor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.combinefn_visitor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.deserialize_windowing_strategy">
+<em class="property">classmethod </em><code class="descname">deserialize_windowing_strategy</code><span class="sig-paren">(</span><em>serialized_data</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.deserialize_windowing_strategy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.flatten_input_visitor">
+<em class="property">static </em><code class="descname">flatten_input_visitor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.flatten_input_visitor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.get_default_gcp_region">
+<code class="descname">get_default_gcp_region</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.get_default_gcp_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a default value for Google Cloud region according to
+<a class="reference external" href="https://cloud.google.com/compute/docs/gcloud-compute/#default-properties">https://cloud.google.com/compute/docs/gcloud-compute/#default-properties</a>.
+If no default can be found, returns None.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.get_pcoll_with_auto_sharding">
+<code class="descname">get_pcoll_with_auto_sharding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.get_pcoll_with_auto_sharding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.is_fnapi_compatible">
+<code class="descname">is_fnapi_compatible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.is_fnapi_compatible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.json_string_to_byte_array">
+<em class="property">static </em><code class="descname">json_string_to_byte_array</code><span class="sig-paren">(</span><em>encoded_string</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.json_string_to_byte_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements org.apache.beam.sdk.util.StringUtils.jsonStringToByteArray.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.poll_for_job_completion">
+<em class="property">static </em><code class="descname">poll_for_job_completion</code><span class="sig-paren">(</span><em>runner</em>, <em>result</em>, <em>duration</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.poll_for_job_completion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Polls for the specified job to finish running (successfully or not).</p>
+<p>Updates the result with the new job information before returning.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>runner</strong> – DataflowRunner instance to use for polling job state.</li>
+<li><strong>result</strong> – DataflowPipelineResult instance used for job information.</li>
+<li><strong>duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The time to wait (in milliseconds) for job to finish.
+If it is set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a>, it will wait indefinitely until the job
+is finished.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>transform</em>, <em>options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the given transform or callable with this runner.</p>
+<p>Blocks until the pipeline is complete.  See also <cite>PipelineRunner.run_async</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_CombineValuesReplacement">
+<code class="descname">run_CombineValuesReplacement</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_CombineValuesReplacement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_ExternalTransform">
+<code class="descname">run_ExternalTransform</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_ExternalTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_Flatten">
+<code class="descname">run_Flatten</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_Flatten" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_GroupByKey">
+<code class="descname">run_GroupByKey</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_GroupByKey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_Impulse">
+<code class="descname">run_Impulse</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_Impulse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_ParDo">
+<code class="descname">run_ParDo</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_ParDo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_Read">
+<code class="descname">run_Read</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_Read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_TestStream">
+<code class="descname">run_TestStream</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_TestStream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run__NativeWrite">
+<code class="descname">run__NativeWrite</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run__NativeWrite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_async">
+<code class="descname">run_async</code><span class="sig-paren">(</span><em>transform</em>, <em>options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the given transform or callable with this runner.</p>
+<p>May return immediately, executing the pipeline in the background.
+The returned result object can be queried for progress, and
+<cite>wait_until_finish</cite> may be called to block until completion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_transform">
+<code class="descname">run_transform</code><span class="sig-paren">(</span><em>transform_node</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.run_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runner callback for a pipeline.run call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>transform_node</strong> – transform node for the transform to run.</td>
+</tr>
+</tbody>
+</table>
+<p>A concrete implementation of the Runner class must implement run_Abc for
+some class Abc in the method resolution order for every non-composite
+transform Xyz in the pipeline.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.serialize_windowing_strategy">
+<em class="property">classmethod </em><code class="descname">serialize_windowing_strategy</code><span class="sig-paren">(</span><em>windowing</em>, <em>default_environment</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.serialize_windowing_strategy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.side_input_visitor">
+<em class="property">static </em><code class="descname">side_input_visitor</code><span class="sig-paren">(</span><em>use_unified_worker=False</em>, <em>use_fn_api=False</em>, <em>deterministic_key_coders=True</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.side_input_visitor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.visit_transforms">
+<code class="descname">visit_transforms</code><span class="sig-paren">(</span><em>pipeline</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#apache_beam.runners.dataflow.test_dataflow_runner.TestDataflowRunner.visit_transforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache_beam.runners.direct.html" class="btn btn-neutral float-right" title="apache_beam.runners.direct package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache_beam.runners.dataflow.ptransform_overrides.html" class="btn btn-neutral float-left" title="apache_beam.runners.dataflow.ptransform_overrides module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
